@@ -1,0 +1,119 @@
+<html lang="it">
+
+<head>
+    <title>Esempi Javascript</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .warning {
+            background-color: gold;
+            padding: 15px;
+        }
+
+        .danger {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        body {
+            padding: 15px;
+            border: 3px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span></span>
+        <div>
+            <form autocomplete="off">
+                <input type="text" id="username">
+                <button type="button" id="btn">Bottone</button>
+                <button type="button" id="btnEm">Svuota</button>
+                <button type="button" id="btnRem">Rimuovi</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <a href="javascript:void(0)" id="backHome">Toggle</a>
+    <div id="toToggle">
+        <h2>Text to toggle</h2>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <a href="#">Link di prova</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button class="warning" type="button" id="warn">Bottone</button>
+
+
+
+    <!-- <script src="js/index.js"> </script> -->
+    <script>
+        $("#btn").click(function () {
+            //assegno l'elemento a una variabile
+            var div = $("#toToggle");
+            //append aggiunge del testo in coda
+            div.append("testo prova testo prova testo prova testo prova")
+
+            //prepend aggiunge del testo all'inizio
+            //div.prepend("<p><b> testo due testo due testo due </b></p>");
+
+            //after aggiunge il testo dopo il div
+            div.after("<div><h2>Nuovo Div</h2></div>")
+            //before aggiunge il testo prima del div
+            //div.before("<div><h2>Nuovo Div</h2></div>")
+        });
+
+        $("#btnEm").click(function () {
+            $("#toToggle").empty();
+        });
+
+        $("#btnRem").click(function () {
+            $("#toToggle").remove();
+            //$("#toToggle").remove("p");
+            //$("#toToggle").remove("p,a");
+        });
+
+        $("#warn").click(function () {
+            var warn = $("#warn");
+            warn.removeClass("warning");
+            warn.addClass("danger");
+            //warn.toggleClass("danger");
+        });
+
+        $(document).ready(function () {
+            $("body").find("span").html(
+                //le operazioni vengono fatte sull'elemento preso in considerazione,
+                //in questo caso è il body quindi l'altezza, la larghezza ecc sono quell del body
+                "Width" + $("body").width() +
+                "<br> Height: " + $("body").height() +
+                //l'altezza e la larghezza /height e width) sono considerate senza padding
+                //l'innerWidth e inner Height calcolano anche il padding
+                "<br> Inner width: " + $("body").innerWidth() +
+                "<br> Inner height: " + $("body").innerHeight() +
+                //l'ourter include padding e border
+                "<br> Outer width: " + $("body").outerWidth() +
+                "<br> Outer height: " + $("body").outerHeight() +
+                //con il true calcoliamo anche il margine
+                "<br> Outer width: " + $("body").outerWidth(true) +
+                "<br> Outer height: " + $("body").outerHeight(true)
+            );
+        });
+
+
+    </script>
+</body>
+
+</html>
