@@ -25,7 +25,7 @@
             </form>
         </div>
     </div>
-    <a href="index.html" id="backHome">Vai Alla Home</a>
+    <a href="https://www.youtube.com/" id="backHome">Vai Alla Home</a>
 </body>
 
 <!-- <script src="js/index.js"> </script> -->
@@ -50,22 +50,34 @@
 
     //SET
     //se passiamo un nuovo testo fra parentesi, lo impostiamo
-    //equivale a .innerHTML = "Nuovo Testo!"
     element.text("Nuovo Testo!");
     //se commento la parte dell'html andrà  a sovrascrivere tutto il Testo
     //quindi a video si vedrà solo "Nuovo Testo"
+    //equivale a .innerHTML = "Nuovo Testo!"
     element.html("Nuovo Testo! <i>Storto</i>")
 
+    //settiamo un nuovo valore
     $("#username").val("Nothing00");
-    $("#backhome").attr("href", "https://youtube.com/c/Nothing00");
+    //settiamo un nuovo valore all'href
+    $("#backHome").attr("href", "https://www.google.it");
 
-    console.log($("input").parent());
-    console.log($("input").parents());
-    console.log($("input").parent("div"));
-    console.log($("input").parent("body"));
-
+    //con parent si intende l'elemento HTML subito sopra di me,
+    //in questo caso prendo in esame "input" quindi l'elemento subito sopra il "form"
+    console.log("INPUT PARENT: ",$("input").parent());
+    //con parents rituorna tutti i parent sopra di me partendo da quello più vicino a quello più esterno
+    //in questo caso: form, div, div, body, html; 
+    console.log("INPUT PARENTS: ",$("input").parents());
+    //se specifico un elemento , prende tutti quelli che si chiamano come quell'elemento
+    //in questo caso prende tutti i div presenti sopra di lui (uno o più). cose se fosse un filtro
+    console.log($("input").parents("div"));
+    //con parentsUntil prende tutti gli elementi FINO A quello indicato, quindi quello ESCLUSO
+    console.log($("input").parentsUntil("body"));
+    //con children mi prende gli elementi dentro/sotto quello indicato
     console.log($("form").children());
-    console.log($("test").find("i"));
+    //va a cercare all'interno di quel contenuto va a cercare la i
+    console.log("I: ",$("#test").find("i"));
+    //non prende il figlio ma il primo elemento di  quel tipo che trova
+    console.log("I: ",$("#test").find("b"));
 
 </script>
 </html>

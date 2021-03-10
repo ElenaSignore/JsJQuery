@@ -1,0 +1,91 @@
+<html lang="it">
+
+<head>
+    <title>Esempi Javascript</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div>
+            <form autocomplete="off">
+                <input type="text" id="username">
+                <button type="button" id="btn">Bottone</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <a href="javascript:void(0)" id="backHome">Toggle</a>
+    <div id="toToggle">
+        <h2>Text to toggle</h2>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+        <p>dhfksjdkfhskdfhskdhfks</p>
+    </div>
+</body>
+
+<!-- <script src="js/index.js"> </script> -->
+<script>
+    //con$("#btn")=> richiamo l'elemento con id btn, dopo nomino l'evento
+    $("#btn").click(function () {
+        alert("Hai premuto un bottone");
+    });
+
+    // this fa riferimento al contesto, il ocntesto in questo caso è lo username
+    //quindi al posto di this potremmo scrivere tranquillamente #username
+    $("#username").keydown(function () {
+        //console.log($(#username).val());
+        //vado a scrivere nel console.log il valore, .val, di quello che ho inserito nel campo con id #username
+        console.log($(this).val());
+    });
+
+    //in questo modo si possono scrivere più eventi per un singolo elemento
+    $("#btn").on({
+        hover: function () {
+            console.log("Sei sul bottone!");
+        },
+        dblclick: function () {
+            alert("Devi inserire qualcosa nella texbox");
+        },
+        click: function () {
+            alert($("#username").val());
+        }
+    });
+
+    $("#username").focus(function () {
+        $(this).css("width", "100%");
+        $(this).css({
+            "outline": "1px solid red",
+            "background-color": "pink"
+        });
+    });
+
+    $("#backHome").click(function () {
+        //assegno l'elemento a una variabile
+        var div = $("#toToggle");
+        div.toggle();
+
+        //inserisco un delay di un secondo
+        //div.toggle(1000);
+
+        //posso scriverlo anche così ma è più lungo
+        //se l'elemento è nascosto mostralo
+        // if (div.is(":hidden")) {
+        //     div.show()
+        //     //altrimenti nascondilo
+        // } else {
+        //     div.hide(); //delay
+        // }
+    });
+
+
+</script>
+
+</html>
