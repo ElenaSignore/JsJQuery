@@ -22,6 +22,7 @@ function convertiJson() {
     caricaFile().then((res) => {
         const dati = JSON.parse(res);
         console.log('DATI', dati)
+        document.getElementById("display").innerHTML = "Hello World";
         //document.getElementById('display').innerHTML= dati.stringyfi();
     }).catch((err) => {
         console.log(err)
