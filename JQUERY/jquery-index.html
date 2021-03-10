@@ -1,0 +1,71 @@
+<html lang="it">
+
+<head>
+    <title>Esempi Javascript</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Esempi Javascript -->
+
+    <div id="test">Questo Test <i>Strano ... <b>WOW</b></i></div>
+    <div class="testo">
+        <p>Testo....</p>
+    </div>
+    <div class="testo">
+        <p>Altro Testo....</p>
+    </div>
+
+    <div>
+        <div>
+            <form>
+                <input type="text" value="VitaDaFounder" id="username" />
+                <button type="button" onclick="test()">Test</button>
+            </form>
+        </div>
+    </div>
+    <a href="index.html" id="backHome">Vai Alla Home</a>
+</body>
+
+<!-- <script src="js/index.js"> </script> -->
+<script>
+    //equivale al document.getElementById("test")
+    var element = $("#test");
+    console.log(element);
+    var elements = $(".testo");
+    console.log(elements);
+
+    //se voglio farmi ritornare il contenuto della scritta uso .text() 
+    console.log("CONTENUTO: ",element.text());
+    //se voglio farmi tornare il contenuto ma in html uso .html()
+    console.log("HTML: ", element.html());
+
+    //GET
+    //Stampa il valore dell'input
+    console.log($("#username").val());
+    //con attr mi rotorna il contenuto di qualsiasi valore dell'html specificato dopo,
+    // in questo caso il valore dell'attributo href
+    console.log($("#backHome").attr("href"));
+
+    //SET
+    //se passiamo un nuovo testo fra parentesi, lo impostiamo
+    //equivale a .innerHTML = "Nuovo Testo!"
+    element.text("Nuovo Testo!");
+    //se commento la parte dell'html andrà  a sovrascrivere tutto il Testo
+    //quindi a video si vedrà solo "Nuovo Testo"
+    element.html("Nuovo Testo! <i>Storto</i>")
+
+    $("#username").val("Nothing00");
+    $("#backhome").attr("href", "https://youtube.com/c/Nothing00");
+
+    console.log($("input").parent());
+    console.log($("input").parents());
+    console.log($("input").parent("div"));
+    console.log($("input").parent("body"));
+
+    console.log($("form").children());
+    console.log($("test").find("i"));
+
+</script>
+</html>
